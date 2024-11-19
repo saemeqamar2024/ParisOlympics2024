@@ -26,7 +26,7 @@ The datasets are all available to be downloaded from Kaggle.
 
 ![image](https://github.com/user-attachments/assets/680878eb-76a7-4622-a11b-c0a6626e0bbb)
 
-- The number of Gold, Silver and Bronze medals being won daily:
+- The number of Gold, Silver and Bronze medals won daily:
 
 ![image](https://github.com/user-attachments/assets/0620f859-b0c4-49d3-a6c7-4c06eabc2bc4)
 
