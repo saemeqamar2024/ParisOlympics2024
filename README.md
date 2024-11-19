@@ -1,4 +1,4 @@
-# ParisOlympics2024
+# Paris Olympics 2024
 
 ## Objectives
 The main objectives of this analysis were to find out the following information:
