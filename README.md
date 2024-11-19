@@ -52,5 +52,5 @@ Here is a summary of the findings from this project:
 - The USA won 126 medals in total, which was the highest number. Team GB came 3rd with 65 medals, and France (the host 
   nation) came 4th with 64 medals.
 - The oldest athlete to have won a Gold medal was Isabell Werth, from Germany, at the age of 54.
-- The youngest athlete to have won a Gold medal was Arisa Trew, from Australia, at the age of 14 year old.
+- The youngest athlete to have won a Gold medal was Arisa Trew, from Australia, at the age of 14.
 - The athlete to have won the most Gold medals was the French swimmer Leon Marchand, who won 4 Gold medals.
