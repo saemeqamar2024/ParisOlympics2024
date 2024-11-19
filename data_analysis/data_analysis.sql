@@ -28,38 +28,38 @@ ORDER BY total_medals_won DESC;
 -- The USA won 42 Bronze medals.
 SELECT country, total_bronze_medals
 FROM (SELECT country_long AS country, COUNT(medal_type) AS total_bronze_medals
-	  FROM medals_cleaned
-	  WHERE medal_type = 'Bronze '
-	  GROUP BY country_long)
+      FROM medals_cleaned
+      WHERE medal_type = 'Bronze '
+      GROUP BY country_long)
 WHERE total_bronze_medals = (SELECT MAX(total_bronze_medals) 
-							 FROM (SELECT country_long AS country, COUNT(medal_type) AS total_bronze_medals
-	  						 FROM medals_cleaned
-	  						 WHERE medal_type = 'Bronze '
-	  						 GROUP BY country_long));
+			     FROM (SELECT country_long AS country, COUNT(medal_type) AS total_bronze_medals
+	  			   FROM medals_cleaned
+	  			   WHERE medal_type = 'Bronze '
+	  			   GROUP BY country_long));
 
 -- The USA won 44 Silver medals.
 SELECT country, total_silver_medals
 FROM (SELECT country_long AS country, COUNT(medal_type) AS total_silver_medals
-	  FROM medals_cleaned
-	  WHERE medal_type = 'Silver '
-	  GROUP BY country_long)
+      FROM medals_cleaned
+      WHERE medal_type = 'Silver '
+      GROUP BY country_long)
 WHERE total_silver_medals = (SELECT MAX(total_silver_medals)
-	  					     FROM (SELECT country_long AS country, COUNT(medal_type) AS total_silver_medals
-								   FROM medals_cleaned
-								   WHERE medal_type = 'Silver '
-								   GROUP BY country_long));
+	  		     FROM (SELECT country_long AS country, COUNT(medal_type) AS total_silver_medals
+				   FROM medals_cleaned
+				   WHERE medal_type = 'Silver '
+				   GROUP BY country_long));
 								   
 -- The USA and China both won 40 Gold medals each.
 SELECT country, total_gold_medals
 FROM (SELECT country_long AS country, COUNT(medal_type) AS total_gold_medals
-	  FROM medals_cleaned
-	  WHERE medal_type = 'Gold '
-	  GROUP BY country_long)
+      FROM medals_cleaned
+      WHERE medal_type = 'Gold '
+      GROUP BY country_long)
 WHERE total_gold_medals = (SELECT MAX(total_gold_medals)
-	  					     FROM (SELECT country_long AS country, COUNT(medal_type) AS total_gold_medals
-								   FROM medals_cleaned
-								   WHERE medal_type = 'Gold '
-								   GROUP BY country_long));
+	  		   FROM (SELECT country_long AS country, COUNT(medal_type) AS total_gold_medals
+			         FROM medals_cleaned
+				 WHERE medal_type = 'Gold '
+				 GROUP BY country_long));
 
 -- /** Creating temporary tables to show the number of Gold, Silver and Bronze
 -- medals won daily. **/
@@ -131,38 +131,38 @@ WHERE birth_date = (SELECT MAX(birth_date) FROM medallists_cleaned WHERE medal_t
 -- Leon Marchand won 4 Gold medals.
 SELECT name, country_long, discipline, total_gold_medals
 FROM (SELECT name, country_long, discipline, COUNT(medal_type) AS total_gold_medals
-	  FROM medallists_cleaned
-	  WHERE medal_type = 'Gold '
-	  GROUP BY name, country_long, discipline)
+      FROM medallists_cleaned
+      WHERE medal_type = 'Gold '
+      GROUP BY name, country_long, discipline)
 WHERE total_gold_medals = (SELECT MAX(total_gold_medals) 
-						   FROM (SELECT name, country_long, discipline, COUNT(medal_type) AS total_gold_medals
-								 FROM medallists_cleaned
-								 WHERE medal_type = 'Gold '
-								 GROUP BY name, country_long, discipline));
+			   FROM (SELECT name, country_long, discipline, COUNT(medal_type) AS total_gold_medals
+			  	 FROM medallists_cleaned
+				 WHERE medal_type = 'Gold '
+				 GROUP BY name, country_long, discipline));
 
 -- Regan Smith won 3 Silver medals.
 SELECT name, country_long, discipline, total_silver_medals
 FROM (SELECT name, country_long, discipline, COUNT(medal_type) AS total_silver_medals
-	  FROM medallists_cleaned
-	  WHERE medal_type = 'Silver '
-	  GROUP BY name, country_long, discipline)
+      FROM medallists_cleaned
+      WHERE medal_type = 'Silver '
+      GROUP BY name, country_long, discipline)
 WHERE total_silver_medals = (SELECT MAX(total_silver_medals) 
-						     FROM (SELECT name, country_long, discipline, COUNT(medal_type) AS total_silver_medals
-								   FROM medallists_cleaned
-								   WHERE medal_type = 'Silver '
-								   GROUP BY name, country_long, discipline));
+			     FROM (SELECT name, country_long, discipline, COUNT(medal_type) AS total_silver_medals
+				   FROM medallists_cleaned
+				   WHERE medal_type = 'Silver '
+				   GROUP BY name, country_long, discipline));
 
 -- Yufei Zhang won 5 Bronze medals.
 SELECT name, country_long, discipline, total_bronze_medals
 FROM (SELECT name, country_long, discipline, COUNT(medal_type) AS total_bronze_medals
-	  FROM medallists_cleaned
-	  WHERE medal_type = 'Bronze '
-	  GROUP BY name, country_long, discipline)
+      FROM medallists_cleaned
+      WHERE medal_type = 'Bronze '
+      GROUP BY name, country_long, discipline)
 WHERE total_bronze_medals = (SELECT MAX(total_bronze_medals) 
-						     FROM (SELECT name, country_long, discipline, COUNT(medal_type) AS total_bronze_medals
-								   FROM medallists_cleaned
-								   WHERE medal_type = 'Bronze '
-								   GROUP BY name, country_long, discipline));
+			     FROM (SELECT name, country_long, discipline, COUNT(medal_type) AS total_bronze_medals
+				   FROM medallists_cleaned
+				   WHERE medal_type = 'Bronze '
+				   GROUP BY name, country_long, discipline));
 
 /** Top 10 medallists who won the most medals in total. **/
 SELECT name, country_long, discipline, COUNT(medal_type) AS total_medals
@@ -188,7 +188,7 @@ LIMIT 10;
 SELECT athlete_name, gender, country, LEFT(CAST(age(birth_date) AS VARCHAR),8) AS age
 FROM athletes_cleaned
 WHERE birth_date = (SELECT MIN(birth_date) FROM athletes_cleaned) OR
-	  birth_date = (SELECT MAX(birth_date) FROM athletes_cleaned);
+      birth_date = (SELECT MAX(birth_date) FROM athletes_cleaned);
 	  
 /** Athletes that represented a country other than their country of birth. **/
 -- There were 186 athletes who competed for countries that were not their birth country. **/
